@@ -50,6 +50,8 @@ async def on_reaction_add(reaction, user):
 
 @client.event
 async def on_message(message):
+    if update == 1:
+            await message.channel.send('@BukgeukBOT#8999 을 업데이트 중인 관계로 명령어 사용이 불가능 합니다.')
     if message.content.startswith('&b'):
         if message.content == '&b help':
             now = datetime.datetime.now()
@@ -470,7 +472,8 @@ async def on_message(message):
                         a = message.content[10:]
                         b = a[2:-1]
                         ch = client.get_channel(int(b))
-                        await ch.send('@everyone @BukgeukBOT 업데이트를 시작합니다.')
+                        await ch.send('@everyone @BukgeukBOT#8999 업데이트를 시작합니다.')
+                        update = 1
                         return
                     else:
                         await message.author.send('Failed to access shutdown that is Developer command : INVALID PASSWORD')
