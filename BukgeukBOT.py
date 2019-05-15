@@ -52,6 +52,8 @@ async def on_reaction_add(reaction, user):
 async def on_message(message):
     if update == 1:
             await message.channel.send('@BukgeukBOT#8999 을 업데이트 중인 관계로 명령어 사용이 불가능 합니다.')
+            return
+            
     if message.content.startswith('&b'):
         if message.content == '&b help':
             now = datetime.datetime.now()
