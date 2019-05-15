@@ -59,7 +59,7 @@ async def on_message(message):
             if now.hour > 12:
                 embed1.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
             else:
-                embed1.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
+                embed1.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오전 " + str(now.hour) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
 
             #embed2 설정
             text = "&b help : 도움말\n&b addmember [서버 이름] [@유저] : 멤버 추가\n&b viewmember [서버 이름] : 멤버 출력\n&b notice [서버 이름] [공지 이름] [내용] : 공지 추가\n&b noticesend [서버 이름] [공지 이름] : 공지 확인 안한 멤버에게 확인 메시지 전송\n&b noticedelete [서버 이름] [공지 이름] : 공지 삭제\n&b noticenow [서버 이름] : 진행중인 공지 출력\n&b resetmember [서버 이름] : 멤버 초기화\n&b deletemember [서버 이름] [@유저] : 멤버 삭제\n"
@@ -69,14 +69,14 @@ async def on_message(message):
             if now.hour > 12:
                 embed2.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
             else:
-                embed2.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
+                embed2.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오전 " + str(now.hour) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
 
             #embed3 설정
             embed3 = discord.Embed(title="주의사항", description="항목에 공백이 있으면 오류가 발생합니다\nnotice 명령어를 사용할 때 '[내용]' 항목은 한 줄 내려서 입력해 주세요\nresetreactionuser 명령어를 사용하시면 공지를 작성한 멤버도 리액션 목록에서 삭제됩니다.", color=0xf9dddc)
             if now.hour > 12:
                 embed3.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
             else:
-                embed3.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
+                embed3.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오전 " + str(now.hour) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
             #embed 출력
             await message.author.send('BukgeukBOT 도움말 입니다.', embed=embed1)
             await message.author.send('', embed=embed2)
