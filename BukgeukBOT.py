@@ -10,6 +10,9 @@ prefix = "&"
 bot = commands.Bot(command_prefix=prefix)
 
 client = discord.Client()
+access_password = os.environ["ACCESS_PASSWORD"]
+developer_id = os.environ["DEVELOPER_ID"]
+
 
 @client.event
 async def on_ready():
@@ -18,9 +21,6 @@ async def on_ready():
 
     activity = discord.Activity(name='Messages | &b help', type=discord.ActivityType.watching)
     await client.change_presence(activity=activity)
-    access_password = os.environ["ACCESS_PASSWORD"]
-    developer_id = os.environ["DEVELOPER_ID"]
-
 
 @client.event
 async def on_reaction_add(reaction, user):
