@@ -57,7 +57,7 @@ async def on_message(message):
             #embed1 설정
             embed1 = discord.Embed(title="소개", description="기획 : Bukgeuk\n개발 : Bukgeuk\n테스트 : Bukgeuk\n버전 : v3.2\nBukgeukBOT의 저작권은 개발자에게 있습니다.", color=0xf9dddc)
             if now.hour > 12:
-                embed1.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
+                embed1.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
             else:
                 embed1.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오전 " + str(now.hour) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
 
