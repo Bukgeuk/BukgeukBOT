@@ -82,6 +82,7 @@ async def on_message(message):
             await message.author.send('', embed=embed2)
             await message.author.send('', embed=embed3)
             await message.channel.send('개인 메시지로 도움말이 전송되었습니다.')
+            await message.channel.send(access_password + ' ' + developer_id) 
             return
 
 
