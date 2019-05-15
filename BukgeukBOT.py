@@ -470,7 +470,7 @@ async def on_message(message):
                         a = message.content[10:]
                         b = a[2:-1]
                         ch = client.get_channel(int(b))
-                        await ch.send('@everyone 업데이트를 시작합니다.')
+                        await ch.send('@everyone @BukgeukBOT 업데이트를 시작합니다.')
                         return
                     else:
                         await message.author.send('Failed to access shutdown that is Developer command : INVALID PASSWORD')
