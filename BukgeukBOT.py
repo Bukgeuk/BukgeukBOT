@@ -25,6 +25,7 @@ async def on_ready():
     activity = discord.Activity(name='Messages | &b help', type=discord.ActivityType.watching)
     await client.change_presence(activity=activity)
 
+
 @client.event
 async def on_reaction_add(reaction, user):
     a = reaction.message.content.split("\n")
@@ -52,7 +53,7 @@ async def on_reaction_add(reaction, user):
 
 
 @client.event
-async def on_message(message):         
+async def on_message(message):
     if message.content.startswith('&b'):
         f = open('update.txt', 'rt')
         update_is = f.read()
@@ -60,7 +61,7 @@ async def on_message(message):
         if int(update_is) == 1 and not('&b finishupdate ' in message.content):
             await message.channel.send('업데이트 중인 관계로 명령어를 사용 하실 수 없습니다.')
             return
-        
+
         if message.content == '&b help':
             now = datetime.datetime.now()
 
@@ -93,6 +94,7 @@ async def on_message(message):
             await message.author.send('', embed=embed3)
             await message.channel.send('개인 메시지로 도움말이 전송되었습니다.')
             return
+
 
 
         elif message.content == '&b dmsend':
@@ -522,10 +524,6 @@ async def on_message(message):
             else:
                 await message.channel.send('Failed to access shutdown that is Developer command : PERMISSION ERROR')
                 return
-
-            else:
-                await message.channel.send('Failed to access shutdown that is Developer command : PERMISSION ERROR')
-                return 
 
         else:
             await message.channel.send('알 수 없는 구문이네요...')
