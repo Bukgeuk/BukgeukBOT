@@ -12,7 +12,10 @@ bot = commands.Bot(command_prefix=prefix)
 client = discord.Client()
 access_password = os.environ["ACCESS_PASSWORD"]
 developer_id = os.environ["DEVELOPER_ID"]
-
+update_is = 0
+f = open('update.txt', 'w+t')
+f.write(str(update_is))
+f.close()
 
 @client.event
 async def on_ready():
@@ -51,6 +54,13 @@ async def on_reaction_add(reaction, user):
 @client.event
 async def on_message(message):         
     if message.content.startswith('&b'):
+        f = open('update.txt', 'rt')
+        update_is = f.read()
+        f.close()
+        if int(update_is) == 1 and not('&b finishupdate ' in message.content):
+            await message.channel.send('업데이트 중인 관계로 명령어를 사용 하실 수 없습니다.')
+            return
+        
         if message.content == '&b help':
             now = datetime.datetime.now()
 
@@ -64,7 +74,7 @@ async def on_message(message):
             #embed2 설정
             text = "&b help : 도움말\n&b addmember [서버 이름] [@유저] : 멤버 추가\n&b viewmember [서버 이름] : 멤버 출력\n&b notice [서버 이름] [공지 이름] [내용] : 공지 추가\n&b noticesend [서버 이름] [공지 이름] : 공지 확인 안한 멤버에게 확인 메시지 전송\n&b noticedelete [서버 이름] [공지 이름] : 공지 삭제\n&b noticenow [서버 이름] : 진행중인 공지 출력\n&b resetmember [서버 이름] : 멤버 초기화\n&b deletemember [서버 이름] [@유저] : 멤버 삭제\n"
             text += "&b viewreactionuser [서버 이름] [공지 이름] : 리액션한 유저 출력\n&b addreactionuser [서버 이름] [공지 이름] [@유저] : 리액션 목록에 멤버 추가\n&b deletereactionuser [서버 이름] [공지 이름] [@유저] : 리액션 목록에서 멤버 삭제\n&b resetreactionuser [서버 이름] [공지 이름] : 리액션 목록 초기화\n"
-            text += "&b dmsend : 개인메시지로 메시지 전송\n&b random [최소값] [최대값] : 랜덤으로 범위 내의 숫자 출력\n&b update [#채널] : 채널에 업데이트 알림\n&b shutdown : BukgeukBOT 강제 종료"
+            text += "&b dmsend : 개인메시지로 메시지 전송\n&b random [최소값] [최대값] : 랜덤으로 범위 내의 숫자 출력\n&b startupdate [#채널] : 봇 업데이트 시작 공지\n&b finishupdate [#채널] : 봇 업데이트 완료 공지\n&b shutdown : BukgeukBOT 강제 종료"
             embed2 = discord.Embed(title="명령어", description=text, color=0xf9dddc)
             if now.hour > 12:
                 embed2.set_footer(text = str(now.year) + "년 " + str(now.month) + "월 " + str(now.day) + "일 | " + "오후 " + str(now.hour-12) + "시 " + str(now.minute) + "분 " + str(now.second) +  "초")
@@ -83,7 +93,6 @@ async def on_message(message):
             await message.author.send('', embed=embed3)
             await message.channel.send('개인 메시지로 도움말이 전송되었습니다.')
             return
-
 
 
         elif message.content == '&b dmsend':
@@ -471,7 +480,10 @@ async def on_message(message):
                         b = a[2:-1]
                         ch = client.get_channel(int(b))
                         await ch.send('@everyone @BukgeukBOT#8999 업데이트를 시작합니다.')
-                        update = 1
+                        update_is = 1
+                        f = open('update.txt', 'w+t')
+                        f.write(str(update_is))
+                        f.close()
                         return
                     else:
                         await message.author.send('Failed to access shutdown that is Developer command : INVALID PASSWORD')
@@ -480,7 +492,7 @@ async def on_message(message):
             else:
                 await message.channel.send('Failed to access shutdown that is Developer command : PERMISSION ERROR')
                 return
-            
+
         elif message.content.startswith('&b finishupdate '):
             if str(message.author.id) == developer_id:
                 await message.author.send('Enter password to access Developer Commands.')
@@ -498,11 +510,18 @@ async def on_message(message):
                         b = a[2:-1]
                         ch = client.get_channel(int(b))
                         await ch.send('@everyone @BukgeukBOT#8999 업데이트가 완료되었습니다.')
-                        update = 1
+                        update_is = 0
+                        f = open('update.txt', 'w+t')
+                        f.write(str(update_is))
+                        f.close()
                         return
                     else:
                         await message.author.send('Failed to access shutdown that is Developer command : INVALID PASSWORD')
                         return
+
+            else:
+                await message.channel.send('Failed to access shutdown that is Developer command : PERMISSION ERROR')
+                return
 
             else:
                 await message.channel.send('Failed to access shutdown that is Developer command : PERMISSION ERROR')
