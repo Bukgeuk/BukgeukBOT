@@ -18,10 +18,10 @@ f = open('update.txt', 'w+t')
 f.write(str(update_is))
 f.close()
 
-test = 35
-while test > 0:
-    time.sleep(test)
-    test = test - 1
+time.sleep(5)
+print("5")
+time.sleep(5)
+print("10")
 
 @client.event
 async def on_ready():
