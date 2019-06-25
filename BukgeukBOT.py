@@ -5,6 +5,7 @@ import os
 import string
 import random
 import sys
+import time
 from discord.ext import commands
 prefix = "&"
 bot = commands.Bot(command_prefix=prefix)
@@ -16,6 +17,8 @@ update_is = 0
 f = open('update.txt', 'w+t')
 f.write(str(update_is))
 f.close()
+
+time.sleep(35)
 
 @client.event
 async def on_ready():
