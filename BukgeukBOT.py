@@ -18,11 +18,6 @@ f = open('update.txt', 'w+t')
 f.write(str(update_is))
 f.close()
 
-time.sleep(5)
-print("5")
-time.sleep(5)
-print("10")
-
 @client.event
 async def on_ready():
     print('Logged in as', client.user)
@@ -540,3 +535,8 @@ async def on_message(message):
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
+
+time.sleep(5)
+print("5")
+time.sleep(5)
+print("10")
