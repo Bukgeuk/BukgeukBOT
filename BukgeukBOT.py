@@ -535,12 +535,3 @@ async def on_message(message):
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
-
-time.sleep(5)
-print("5")
-time.sleep(5)
-print("10")
-time.sleep(10)
-print("20")
-time.sleep(15)
-print("35")
