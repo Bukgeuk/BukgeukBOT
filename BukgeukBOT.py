@@ -11,8 +11,8 @@ prefix = "&"
 bot = commands.Bot(command_prefix=prefix)
 
 client = discord.Client()
-access_password = [access_password]
-developer_id = [developer_id]
+access_password = os.environ["Access_Password"]
+developer_id = os.environ["Developer_ID"]
 update_is = 0
 f = open('update.txt', 'w+t')
 f.write(str(update_is))
@@ -533,5 +533,5 @@ async def on_message(message):
         return
 
 
-access_token = [access_token]
+access_token = os.environ["Access_Token"]
 client.run(access_token)
