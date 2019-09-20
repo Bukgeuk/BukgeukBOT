@@ -482,7 +482,7 @@ async def on_message(message):
                         a = message.content[15:]
                         b = a[2:-1]
                         ch = client.get_channel(int(b))
-                        await ch.send('@everyone @BukgeukBOT 업데이트를 시작합니다.')
+                        await ch.send('<@569467294376394762> 업데이트를 시작합니다.')
                         update_is = 1
                         f = open('update.txt', 'w+t')
                         f.write(str(update_is))
@@ -512,7 +512,7 @@ async def on_message(message):
                         a = message.content[16:]
                         b = a[2:-1]
                         ch = client.get_channel(int(b))
-                        await ch.send('@everyone @BukgeukBOT 업데이트가 완료되었습니다.')
+                        await ch.send('<@569467294376394762> 업데이트가 완료되었습니다.')
                         update_is = 0
                         f = open('update.txt', 'w+t')
                         f.write(str(update_is))
